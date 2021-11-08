@@ -13,8 +13,16 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
         self.name = name
         self.my_number = my_number
+    # update init to take *args or **kwargs
+    # *args won't be used if **kwargs is not empty
+        # each key of this dictionary is an attribute name
+        # __class__ should not be added
+        # each value is the attribute value
+    # created_at & updated_at are strings in this dictionary
+        # you have to convert these strings into datetime object
+        # we know the string format of these datetime
+    # otherwise create id and created_at as you did previously (new instane)
 
-    # str should print [<class name>] (<self.id>) <self.__dict__>
     def __str__(self):
         '''str representation of basemodel instance'''
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
