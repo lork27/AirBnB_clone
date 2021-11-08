@@ -2,26 +2,26 @@
 '''module that contains base class'''
 import json
 import uuid
-import datetime
+from datetime import datetime
 
 
 class BaseModel:
-    def __init__(self, name=None, my_number=None, id=None):
+    def __init__(self, *args, **kwargs):
         '''init method for BaseModel'''
+        if kwargs is not None:
+            if 'name' in kwargs:
+                self.name = kwargs["name"]
+            if 'created_at' in kwargs:
+                self.created_at = datetime.strptime(
+                    kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            if 'updated_at' in kwargs:
+                self.updated_at = datetime.strptime(
+                    kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
-        self.name = name
-        self.my_number = my_number
-    # update init to take *args or **kwargs
-    # *args won't be used if **kwargs is not empty
-        # each key of this dictionary is an attribute name
-        # __class__ should not be added
-        # each value is the attribute value
-    # created_at & updated_at are strings in this dictionary
-        # you have to convert these strings into datetime object
-        # we know the string format of these datetime
-    # otherwise create id and created_at as you did previously (new instane)
 
     def __str__(self):
         '''str representation of basemodel instance'''
