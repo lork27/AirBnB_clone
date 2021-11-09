@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 '''module that contains base class'''
-import json
+
 import uuid
 from datetime import datetime
+from __init__ import storage
 
 
 class BaseModel:
@@ -22,7 +23,8 @@ class BaseModel:
                     kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
             if 'id' in kwargs:
                 self.id = kwargs['id']
-       
+        else:
+            storage.new()
 
     def __str__(self):
         '''str representation of basemodel instance'''
