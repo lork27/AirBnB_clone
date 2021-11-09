@@ -8,6 +8,9 @@ from datetime import datetime
 class BaseModel:
     def __init__(self, *args, **kwargs):
         '''init method for BaseModel'''
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+        self.id = str(uuid.uuid4())
         if kwargs is not None:
             if 'name' in kwargs:
                 self.name = kwargs["name"]
@@ -19,9 +22,7 @@ class BaseModel:
                     kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
             if 'id' in kwargs:
                 self.id = kwargs['id']
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-        self.id = str(uuid.uuid4())
+       
 
     def __str__(self):
         '''str representation of basemodel instance'''
