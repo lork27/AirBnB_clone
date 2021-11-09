@@ -1,28 +1,33 @@
 #!/usr/bin/python3
 '''module that contains FileStorage class'''
+import json
 
 
 class FileStorage:
-    __file_path = "placeholder for path"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
         '''
         public method that returns the dictionary of __objects
         '''
-        return {}
+        return self.__objects
 
     def new(self, obj):
         '''
         sets in _objects the obj with <obj classname>.id
         '''
-        # add to __dict key obj.__name__ + obj.id and value as the object itself
+        self.__object[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
         '''
         serializes __objects to the JSON file path:__file_path
         '''
-        # json serialization stuff here
+        new_dict = {}
+        with open(self.__file__path, 'w') as f:
+            for k, v in self.__objects.items():
+                new_dict[k] = v.to_dict()
+            json.dump(new_dict, f)
 
     def reload(self):
         '''
