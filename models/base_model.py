@@ -9,8 +9,6 @@ import models
 class BaseModel:
     def __init__(self, *args, **kwargs):
         '''init method for BaseModel'''
-        # not sure about updated_at being assigned at every instance
-        # maybe that can be left for when save method is saved
         if len(kwargs) == 0:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
@@ -40,28 +38,9 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """
-        public method that returns dictionary
-        representation of instance
-        """
-        return {
-            # 'my_number': self.my_number,
-            # 'name': self.name,
-            '__class__': self.__class__.__name__,
-            'updated_at': self.updated_at.isoformat(),
-            'id': self.id,
-            'created_at': self.created_at.isoformat()
-        }
-
-    # we may need to update to_dict() method so is not as 'hardcoded'
-    # possible way is looping thru all properties so it takes into account
-    # added in attributes such as name, my_number, etc.
-    '''
-    def to_dict(self):
-        """Retorna un dictionario que contenga todos los keys/values de dict"""
-        dict_returned = dict(self.dict)
-        dict_returned["created_at"] = self.created_at.isoformat()
-        dict_returned["updated_at"] = self.updated_at.isoformat()
-        dict_returned["class"] = self.class.name
-        return dict_returned
-    '''
+        """returns dictionary representation of object"""
+        new_dict = self.__dict__.copy()
+        new_dict["created_at"] = self.created_at.isoformat()
+        new_dict["updated_at"] = self.updated_at.isoformat()
+        new_dict["__class__"] = self.__class__.__name__
+        return new_dict
