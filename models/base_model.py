@@ -3,7 +3,7 @@
 
 import uuid
 from datetime import datetime
-from __init__ import storage
+import models
 
 
 class BaseModel:
@@ -25,8 +25,7 @@ class BaseModel:
                     kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
             if 'id' in kwargs:
                 self.id = kwargs['id']
-        else:
-            storage.new()
+        models.storage.new(self)
 
     def __str__(self):
         '''str representation of basemodel instance'''
@@ -39,7 +38,8 @@ class BaseModel:
         method that updates the date and time in which
         an instance was updated
         """
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
@@ -47,7 +47,7 @@ class BaseModel:
         representation of instance
         """
         return {
-            'my_number': self.my_number,
+            # 'my_number': self.my_number,
             'name': self.name,
             '__class__': self.__class__.__name__,
             'updated_at': self.updated_at.isoformat(),

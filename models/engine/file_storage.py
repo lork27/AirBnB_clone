@@ -1,6 +1,8 @@
-#!/usr/bin/python3
 '''module that contains FileStorage class'''
 import json
+from models.base_model import BaseModel
+# this import is a placeholder so our placeholder
+# placholder can placeholder while placeholding
 
 
 class FileStorage:
@@ -17,13 +19,14 @@ class FileStorage:
         '''
         sets in _objects the obj with <obj classname>.id
         '''
-        self.__object[obj.__class__.__name__ + '.' + obj.id] = obj
+        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
         '''
         serializes __objects to the JSON file path:__file_path
         '''
         new_dict = {}
+        print(self.__objects)
         with open(self.__file_path, 'w') as f:
             for k, v in self.__objects.items():
                 new_dict[k] = v.to_dict()
@@ -33,14 +36,17 @@ class FileStorage:
         '''
         de-serializes JSON files to __objects
         '''
-        '''
-        try: open __file_path
-        except do nothing
-        de-serialize (json.loads) JSON file to tmp_dict
-            tmp_dict is now a nested dictionary and we want to create an instance for every dictionary within
-        loop through every item in tmp_dict and create an instance
-            key[:-16](**value)??? -16 because we store name and id(uuid) of every instance and uuid is 16 chars long afaik
-        
-        
-        '''
-        # but only if it exists otherwise do nothing
+        tmp_dict = {}
+        try:
+            with open(self.__file_path, 'r') as f:
+                tmp_dict = json.loads(f.read())
+                for k, v in tmp_dict.items():
+                    '''
+                    module = __import__(models.v["__class__"])
+                    class_ = getattr(module, v["__class__"])
+                    self.__objects[k] = class_(**v)
+                    '''
+                    self.__objects[k] = BaseModel(**v)
+                    # this is a hack, hardcoded, no bueno
+        except IOError:
+            pass
