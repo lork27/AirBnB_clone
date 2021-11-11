@@ -1,8 +1,7 @@
 '''module that contains FileStorage class'''
 import json
 from models.base_model import BaseModel
-# this import is a placeholder so our placeholder
-# placholder can placeholder while placeholding
+from models.user import User
 
 
 class FileStorage:
@@ -40,12 +39,6 @@ class FileStorage:
             with open(self.__file_path, 'r') as f:
                 tmp_dict = json.loads(f.read())
                 for k, v in tmp_dict.items():
-                    '''
-                    module = __import__(models.v["__class__"])
-                    class_ = getattr(module, v["__class__"])
-                    self.__objects[k] = class_(**v)
-                    '''
-                    self.__objects[k] = BaseModel(**v)
-                    # this is a hack, hardcoded, no bueno
+                    self.__objects[k] = eval(v["__class__"])(**v)
         except IOError:
             pass
