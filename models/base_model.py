@@ -2,7 +2,7 @@
 '''module that contains base class'''
 
 import uuid
-from datetime import datetime
+from datetime import date, datetime
 import models
 
 
@@ -11,21 +11,19 @@ class BaseModel:
         '''init method for BaseModel'''
         # not sure about updated_at being assigned at every instance
         # maybe that can be left for when save method is saved
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-        self.id = str(uuid.uuid4())
-        if kwargs is not None:
-            if 'name' in kwargs:
-                self.name = kwargs["name"]
-            if 'created_at' in kwargs:
-                self.created_at = datetime.strptime(
-                    kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
-            if 'updated_at' in kwargs:
-                self.updated_at = datetime.strptime(
-                    kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-        models.storage.new(self)
+        if len(kwargs) == 0:
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            self.id = str(uuid.uuid4())
+            models.storage.new(self)
+        else:
+            del kwargs['__class__']
+            kwargs['created_at'] = datetime.strptime(
+                kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
+            kwargs['updated_at'] = datetime.strptime(
+                kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         '''str representation of basemodel instance'''
