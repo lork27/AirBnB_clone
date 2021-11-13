@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 try:
                     print(objs[split_arg[0] + "." + split_arg[1]])
-                except:
+                except Exception:
                     print("** no instance found **")
     '''basic commands below'''
 
