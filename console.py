@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""module with the console interpreter"""
 import cmd
 from models import storage
 from models.base_model import BaseModel
@@ -64,6 +65,8 @@ class HBNBCommand(cmd.Cmd):
                     print(objs[split_arg[0] + "." + split_arg[1]])
                 except Exception:
                     print("** no instance found **")
+
+    def do_create(self):
     '''basic commands below'''
 
     def do_quit(self, line):
