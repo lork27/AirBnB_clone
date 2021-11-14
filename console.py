@@ -118,7 +118,8 @@ class HBNBCommand(cmd.Cmd):
                 elif arglen < 4:
                     print("** value missing **")
                 else:
-                    setattr(objs[idname], split_arg[2], split_arg[3])
+                    setattr(objs[idname], split_arg[2],
+                            split_arg[3].strip('"'))
                     storage.save()
 
     '''basic commands below'''
