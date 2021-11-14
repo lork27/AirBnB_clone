@@ -50,15 +50,16 @@ class TestBaseModel(unittest.TestCase):
         """test if to_dict returns a dictionary"""
         self.assertIsInstance(self.A_base_model.to_dict(), dict)
 
+    def test_to_dict_has_key(self):
+        """test if to_dict works"""
+        self.assertIn("created_at", self.A_base_model.to_dict())
+        self.assertIn("updated_at", self.A_base_model.to_dict())
+        self.assertIn("id", self.A_base_model.to_dict())
+
     def test_add_attribute(self):
         """test adding attribute"""
         self.A_base_model.name = "pepe"
         self.assertEqual(self.A_base_model.name, "pepe")
-
-    def test_kwarg(self):
-        objdict = self.A_base_model.to_dict()
-        self.kwarginstance = BaseModel(**objdict)
-        self.assertIsInstance(self.kwarginstance, BaseModel)
 
     def test_kwarg(self):
         objdict = self.A_base_model.to_dict()
