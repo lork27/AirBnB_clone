@@ -44,7 +44,7 @@ and waits for the user to type a command. A command line always ends with a new 
 
 $ echo "help" | ./console.py
 (hbnb)
-Documented commands (type help <topic>):
+Documented commands (type help<topic>):
 
 ========================================
 
