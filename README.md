@@ -12,3 +12,9 @@ First part of three to create a full web application, an AirBnb clone. In this p
 *    Destroy an object
 
 ### The tasks carried out include:
+
+*    Create a main class (called BaseModel) that takes care of the initialization, serialization, and deserialization of new instances.
+*    Create a simple serialization / deserialization flow: Instance <-> Dictionary <-> JSON String <-> file
+*    Create all the classes used for AirBnB that inherit from BaseModel (User, State, City, Place, Amenities, Review)
+*    Create a storage engine to be able to save and retrieve data.
+*    Create all the unittests to validate all the processes
