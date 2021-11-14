@@ -62,3 +62,32 @@ EOF  all  create  destroy  help  quit  show  update
 * all: Prints all string representation of all instances based or not on the class name. Ex all BaseModel (shows all instances of class) or all (shows all instances of all classes) (Must be used with existing class, otherwise prints error)
 
 ### File Manifest:
+
+*    models
+*        engine
+*            init.py
+*            file_storage.py
+*        init.py
+*        amenity.py
+*        base_model.py
+*        city.py
+*        place.py
+*        review.py
+*        state.py
+*       user.py
+*        tests
+*            init.py
+*            test_console.py
+*            test_models
+*                init.py
+*                test_amenity.py
+*                test_base_model.py
+*                test_city.py
+*                test_file_storage.py
+*                test_place.py
+*                test_review.py
+*                test_state.py
+*                test_user.py
+*    console.py
+*    README.md
+*    AUTHORS
