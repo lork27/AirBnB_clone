@@ -91,3 +91,5 @@ EOF  all  create  destroy  help  quit  show  update
 *    console.py
 *    README.md
 *    AUTHORS
+
+### Known bugs
