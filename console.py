@@ -38,6 +38,7 @@ class HBNBCommand(cmd.Cmd):
         arguments = {
             "all()": self.do_all,
             "count()": self.do_count,
+            "show()": self.do_show,
         }
         if len(arglist) < 2:
             print(f"** Unknown syntax {arg}**")
