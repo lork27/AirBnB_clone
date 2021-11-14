@@ -36,7 +36,6 @@ class HBNBCommand(cmd.Cmd):
         based on name
         """
         if len(arg) == 0:
-            # print(objs)
             for key in objs.keys():
                 obj = objs[key]
                 print(obj)
@@ -66,14 +65,71 @@ class HBNBCommand(cmd.Cmd):
                 except Exception:
                     print("** no instance found **")
 
-    def do_create(self):
+    def do_create(self, arg):
+        '''create instance of class'''
+        if len(arg) == 0:
+            print("** class name is missing **")
+        elif arg in classes_dict:
+            newclass = classes_dict[arg]()
+            print(newclass.id)
+            storage.new(newclass)
+            storage.save()
+        else:
+            print("** class doesn't exist **")
+
+    def do_destroy(self, arg):
+        """destroy instance of class based on id"""
+        split_arg = arg.split(" ")
+        if len(arg) == 0:
+            print("** class name is missing **")
+        else:
+            if split_arg[0] not in list_of_classes:
+                print("** class name doesn't exist **")
+            elif len(split_arg) < 2:
+                print("** instance id is missing")
+            else:
+                try:
+                    idname = split_arg[0] + '.' + split_arg[1]
+                    del objs[idname]
+                    storage.save()
+                except Exception:
+                    print("** no instance found **")
+
+    def do_update(self, arg):
+        """update or adds attribute to given instance"""
+        split_arg = arg.split(" ")
+        arglen = len(split_arg)
+        if len(arg) == 0:
+            print("** class is missing **")
+        else:
+            if split_arg[0] not in list_of_classes:
+                print("** class doesn't exist **")
+            elif len(split_arg) < 2:
+                print("** instance id is missing")
+            else:
+                try:
+                    idname = split_arg[0] + '.' + split_arg[1]
+                except Exception:
+                    pass
+                if idname not in objs.keys():
+                    print("**no instance found**")
+                elif arglen < 3:
+                    print("** attribute name missing **")
+                elif arglen < 4:
+                    print("** value missing **")
+                else:
+                    setattr(objs[idname], split_arg[2], split_arg[3])
+                    storage.save()
+
     '''basic commands below'''
 
     def do_quit(self, line):
+        """quit program"""
         self.close()
         quit()
 
     def emptyline(self):
+        """when the user enters no command"""
         pass
 
     def do_EOF(self, line):
