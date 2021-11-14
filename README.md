@@ -10,3 +10,5 @@ First part of three to create a full web application, an AirBnb clone. In this p
 *    Do operations on objects (count, compute stats, etc…)
 *    Update attributes of an object
 *    Destroy an object
+
+### The tasks carried out include:
