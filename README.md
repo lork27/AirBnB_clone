@@ -60,3 +60,5 @@ EOF  all  create  destroy  help  quit  show  update
 * update: Updates an instance based on the class name and id by adding or updating attributes and saves the changes to the JSON file. Ex: update BaseModel 1234-1234-1234 email "airbnb@holbertonschool.com" (Must be used with existing class and id, otherwise prints error)
 * destroy: Deletes an instance based on the class name and id and saves the changes in the JSON file. Ex destroy BaseModel 121212 (Must be used with existing class and id, otherwise prints error)
 * all: Prints all string representation of all instances based or not on the class name. Ex all BaseModel (shows all instances of class) or all (shows all instances of all classes) (Must be used with existing class, otherwise prints error)
+
+### File Manifest:
