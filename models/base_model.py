@@ -7,6 +7,8 @@ import models
 
 
 class BaseModel:
+    """BaseModel class on which all other classes are based on"""
+
     def __init__(self, *args, **kwargs):
         '''init method for BaseModel'''
         if len(kwargs) == 0:
