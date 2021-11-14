@@ -54,11 +54,11 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb)
 
 ### Here is an example of how to use our console
-(hbnb) create BaseModel
+(hbnb) create BaseModel 
 f36a8c0e-a9b3-40fc-ae09-2852fc75b7e9
-(hbnb) show BaseModel
-** instance id is missing
-(hbnb) quit BaseModel
+(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2021, 11, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2021, 10, 2, 3, 10, 25, 903300)}
+(hbnb) quit 
 
 ### Commands the console accepts:
 * create: creates a new instance of the class, saves it to the JSON file and prints the id. Ex: create BaseModel (Must be used with existing class, otherwise prints error)
