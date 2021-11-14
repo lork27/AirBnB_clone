@@ -50,6 +50,11 @@ class TestBaseModel(unittest.TestCase):
         """test if to_dict returns a dictionary"""
         self.assertIsInstance(self.A_base_model.to_dict(), dict)
 
+    def test_add_attribute(self):
+        """test adding attribute"""
+        self.A_base_model.name = "pepe"
+        self.assertEqual(self.A_base_model.name, "pepe")
+
 
 if __name__ == "__main__":
     unittest.main()
