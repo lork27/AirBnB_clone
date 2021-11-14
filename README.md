@@ -93,3 +93,4 @@ EOF  all  create  destroy  help  quit  show  update
 *    AUTHORS
 
 ### Known bugs
+This project is still in under construction, therefore bugs may be present. If you find any, you're welcome to let us know :)
