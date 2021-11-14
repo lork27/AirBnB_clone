@@ -77,6 +77,9 @@ EOF  all  create  destroy  help  quit  show  update
 *   review.py
 *   state.py
 *   user.py
+
+### Test files:
+
 *             tests
 *             init.py
 *             test_console.py
@@ -90,6 +93,9 @@ EOF  all  create  destroy  help  quit  show  update
 *             test_review.py
 *             test_state.py
 *             test_user.py
+
+### Other files:
+
 *   console.py
 *   README.md
 *   AUTHORS
