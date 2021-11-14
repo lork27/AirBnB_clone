@@ -53,8 +53,6 @@ class TestBaseModel(unittest.TestCase):
     def test_to_dict_has_key(self):
         """test if to_dict works"""
         self.assertIn("created_at", self.A_base_model.to_dict())
-        self.assertIn("updated_at", self.A_base_model.to_dict())
-        self.assertIn("id", self.A_base_model.to_dict())
 
     def test_add_attribute(self):
         """test adding attribute"""
