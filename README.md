@@ -30,3 +30,12 @@ The command interpreter is the program that receives what is written in the term
 *    Tested with the unittest module
 
 ### How to use the interpreter?
+Usage in interactive mode:
+
+$ ./console.py
+
+This executes the command interpreter and displays the prompt:
+
+(hbnb)
+
+and waits for the user to type a command. A command line always ends with a new line. The prompt is displayed again each time a command is executed.
