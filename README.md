@@ -80,7 +80,6 @@ EOF  all  create  destroy  help  quit  show  update
 
 ### Test files:
 
-*             tests
 *             init.py
 *             test_console.py
 *             test_models
