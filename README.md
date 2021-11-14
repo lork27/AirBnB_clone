@@ -23,3 +23,8 @@ First part of three to create a full web application, an AirBnb clone. In this p
 The command interpreter is the program that receives what is written in the terminal and converts it into instructions for the operating system. In this case, we create our own command interpreter for the functions that we need for the correct functioning of our Airbnb clone.
 
 ### Technical Characteristics
+
+*    Written in Python3
+*    PEP8 compliant
+*    Console created with the module cmd
+*    Tested with the unittest module
