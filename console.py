@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """module with the console interpreter"""
 import cmd
+import re
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -36,11 +37,11 @@ class HBNBCommand(cmd.Cmd):
         """
         arglist = arg.split('.')
         arguments = {
-            "all()": self.do_all,
-            "count()": self.do_count,
-            "show()": self.do_show,
-            "destroy()": self.do_destroy,
-            "update()": self.do_update,
+            "all": self.do_all,
+            "count": self.do_count,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "update": self.do_update,
         }
         if len(arglist) < 2:
             print(f"** Unknown syntax {arg}**")
@@ -48,11 +49,21 @@ class HBNBCommand(cmd.Cmd):
         else:
             clsname = arglist[0]
             method = arglist[1]
+            try:
+                idsubstr = re.search(r'\("(.*?)"\)', method).group(1)
+            except Exception:
+                idsubstr = ""
+            try:
+                methodclean = re.search(r'.+?(?=\()', method).group(0)
+            except Exception:
+                methodclean = method
             if clsname not in list_of_classes:
                 print("** class doesn't exist **")
             else:
-                if method in arguments.keys():
-                    arguments[method](clsname)
+                if methodclean in arguments.keys():
+                    print(idsubstr)
+                    print(methodclean)
+                    arguments[methodclean](clsname)
                 else:
                     print(f"** Unknown syntax {arg}**")
 
