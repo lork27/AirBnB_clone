@@ -55,6 +55,16 @@ class TestBaseModel(unittest.TestCase):
         self.A_base_model.name = "pepe"
         self.assertEqual(self.A_base_model.name, "pepe")
 
+    def test_kwarg(self):
+        objdict = self.A_base_model.to_dict()
+        self.kwarginstance = BaseModel(**objdict)
+        self.assertIsInstance(self.kwarginstance, BaseModel)
+
+    def test_kwarg(self):
+        objdict = self.A_base_model.to_dict()
+        self.kwarginstance = BaseModel(**objdict)
+        self.assertIsInstance(self.kwarginstance, BaseModel)
+
 
 if __name__ == "__main__":
     unittest.main()
