@@ -39,3 +39,13 @@ This executes the command interpreter and displays the prompt:
 (hbnb)
 
 and waits for the user to type a command. A command line always ends with a new line. The prompt is displayed again each time a command is executed.
+
+...and in non-interactive mode:
+
+$ echo "help" | ./console.py
+(hbnb)
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb)
