@@ -54,3 +54,4 @@ EOF  all  create  destroy  help  quit  show  update
 
 
 
+### Commands the console accepts:
