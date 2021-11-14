@@ -17,8 +17,9 @@ class TestBaseModel(unittest.TestCase):
         self.A_base_model = BaseModel()
         self.B_base_model = BaseModel()
 
-    def test_str(self):
+    def test_str_is_str(self):
         ''' Test __str__ method '''
+        self.assertIsInstance(self.A_base_model.__str__(), str)
 
     def test_Init(self):
         ''' Checks if Init works'''
@@ -44,6 +45,10 @@ class TestBaseModel(unittest.TestCase):
         self.A_base_model.save()
         self.assertNotEqual(self.A_base_model.created_at,
                             self.A_base_model.updated_at)
+
+    def test_to_dict(self):
+        """test if to_dict returns a dictionary"""
+        self.assertIsInstance(self.A_base_model.to_dict(), dict)
 
 
 if __name__ == "__main__":
