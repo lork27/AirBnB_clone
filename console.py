@@ -122,6 +122,18 @@ class HBNBCommand(cmd.Cmd):
                             split_arg[3].strip('"'))
                     storage.save()
 
+    '''Advanced commands below'''
+
+    def do_count(self, arg):
+        """counts number of instances of given class"""
+        total = 0
+        if arg not in classes_dict:
+            print("** class doesn't exist **")
+            return
+        for key in objs.keys():
+            if arg in key:
+                total += 1
+        print(total)
     '''basic commands below'''
 
     def do_quit(self, line):
