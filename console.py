@@ -61,13 +61,12 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 if methodclean in arguments.keys():
-                    print(methodclean)
-                    print(clsname)
-                    print(idsubstr)
                     if idsubstr is None:
                         arguments[methodclean](clsname)
-                    else:
+                    elif methodclean == "show":
                         self.do_show(clsname + " " + idsubstr)
+                    elif methodclean == "destroy":
+                        self.do_destroy(clsname + " " + idsubstr)
                 else:
                     print(f"** Unknown syntax {arg}**")
 
