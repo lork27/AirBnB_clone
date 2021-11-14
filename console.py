@@ -30,6 +30,31 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     file = None
 
+    def default(self, arg):
+        """
+        Called on an input line when the command prefix is not recognized.
+        """
+        arglist = arg.split('.')
+        arguments = {
+            "all()": self.do_all,
+            "count()": self.do_count,
+        }
+        if len(arglist) < 2:
+            print(f"** Unknown syntax {arg}**")
+            return
+        else:
+            clsname = arglist[0]
+            print(clsname)
+            method = arglist[1]
+            print(method)
+            if clsname not in list_of_classes:
+                print("** class doesn't exist **")
+            else:
+                if method in arguments.keys():
+                    arguments[method](clsname)
+                else:
+                    print(f"** Unknown syntax {arg}**")
+
     def do_all(self, arg):
         """
         print str representation of all instances
