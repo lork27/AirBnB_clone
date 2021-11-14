@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
             try:
                 idsubstr = re.search(r'\("(.*?)"\)', method).group(1)
             except Exception:
-                idsubstr = ""
+                idsubstr = None
             try:
                 methodclean = re.search(r'.+?(?=\()', method).group(0)
             except Exception:
@@ -61,9 +61,13 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 if methodclean in arguments.keys():
-                    print(idsubstr)
                     print(methodclean)
-                    arguments[methodclean](clsname)
+                    print(clsname)
+                    print(idsubstr)
+                    if idsubstr is None:
+                        arguments[methodclean](clsname)
+                    else:
+                        self.do_show(clsname + " " + idsubstr)
                 else:
                     print(f"** Unknown syntax {arg}**")
 
