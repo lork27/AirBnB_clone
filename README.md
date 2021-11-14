@@ -18,3 +18,5 @@ First part of three to create a full web application, an AirBnb clone. In this p
 *    Create all the classes used for AirBnB that inherit from BaseModel (User, State, City, Place, Amenities, Review)
 *    Create a storage engine to be able to save and retrieve data.
 *    Create all the unittests to validate all the processes
+
+### What’s a command interpreter?
