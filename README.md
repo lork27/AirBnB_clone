@@ -28,3 +28,5 @@ The command interpreter is the program that receives what is written in the term
 *    PEP8 compliant
 *    Console created with the module cmd
 *    Tested with the unittest module
+
+### How to use the interpreter?
