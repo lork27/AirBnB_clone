@@ -49,3 +49,8 @@ Documented commands (type help <topic>):
 EOF  all  create  destroy  help  quit  show  update
 
 (hbnb)
+
+### Here is an example of how to use our console
+
+
+
