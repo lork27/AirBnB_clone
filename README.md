@@ -53,8 +53,11 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb)
 
 ### Here is an example of how to use our console
-
-
+(hbnb) create BaseModel
+f36a8c0e-a9b3-40fc-ae09-2852fc75b7e9
+(hbnb) show BaseModel
+** instance id is missing
+(hbnb) quit BaseModel
 
 ### Commands the console accepts:
 * create: creates a new instance of the class, saves it to the JSON file and prints the id. Ex: create BaseModel (Must be used with existing class, otherwise prints error)
