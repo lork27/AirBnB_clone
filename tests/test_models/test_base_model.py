@@ -7,6 +7,7 @@ import unittest
 from unittest.case import _AssertRaisesContext
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from test_base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
@@ -20,6 +21,10 @@ class TestBaseModel(unittest.TestCase):
     def test_str_is_str(self):
         ''' Test __str__ method '''
         self.assertIsInstance(self.A_base_model.__str__(), str)
+
+    def test_str_content(self):
+        """checks content of __str__"""
+        self.assertIn("[BaseModel]", self.B_base_model.__str__())
 
     def test_Init(self):
         ''' Checks if Init works'''
