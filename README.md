@@ -3,6 +3,8 @@
 ### Introduction
 First part of three to create a full web application, an AirBnb clone. In this project, the objective is to write a command interpreter to manage AirBnb objects.
 
+![hbnb](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211114%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211114T211034Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=bb8ace49c35c60a0045d2885508d912b99a16315e689be0c81575221df95df7b)
+
 ### Management of the objects include:
 
 *    Create a new object (ex: a new User or a new Place)
