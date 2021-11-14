@@ -55,3 +55,4 @@ EOF  all  create  destroy  help  quit  show  update
 
 
 ### Commands the console accepts:
+* create: creates a new instance of the class, saves it to the JSON file and prints the id. Ex: create BaseModel (Must be used with existing class, otherwise prints error)
