@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
         """
         split_arg = arg.split(" ")
         if len(arg) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         else:
             if split_arg[0] not in list_of_classes:
                 print("** class doesn't exist **")
@@ -108,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         '''create instance of class'''
         if len(arg) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif arg in classes_dict:
             newclass = classes_dict[arg]()
             print(newclass.id)
@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
         """destroy instance of class based on id"""
         split_arg = arg.split(" ")
         if len(arg) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         else:
             if split_arg[0] not in list_of_classes:
                 print("** class name doesn't exist **")
