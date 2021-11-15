@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
             "update": self.do_update,
         }
         if len(arglist) < 2:
-            print(f"** Unknown syntax {arg}**")
+            print(f"** Unknown syntax {arg} **")
             return
         else:
             clsname = arglist[0]
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
                     elif methodclean == "destroy":
                         self.do_destroy(clsname + " " + idsubstr)
                 else:
-                    print(f"** Unknown syntax {arg}**")
+                    print(f"** Unknown syntax {arg} **")
 
     def do_all(self, arg):
         """
@@ -152,7 +152,7 @@ class HBNBCommand(cmd.Cmd):
                 except Exception:
                     pass
                 if idname not in objs.keys():
-                    print("** no instance foundi **")
+                    print("** no instance found **")
                 elif arglen < 3:
                     print("** attribute name missing **")
                 elif arglen < 4:
