@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             if split_arg[0] not in list_of_classes:
-                print("** class name doesn't exist **")
+                print("** class doesn't exist **")
             elif len(split_arg) < 2:
                 print("** instance id is missing **")
             else:
