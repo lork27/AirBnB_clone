@@ -84,6 +84,8 @@ right and box-sizing to limit the size of the box*/
   box-sizing: border-box;
   opacity: 0;
   transition: 150ms;
+  z-index: 1;
+  position: relative;
 }
 /*combined padding to move the content to the 
 right and box-sizing to limit the size of the box*/
