@@ -6,7 +6,7 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: start;
 }
 .filters button {
     font-size: 18px;
@@ -17,13 +17,25 @@
     border: none;
     border-radius: 4px;
     margin-right: 30px;
+    margin-left: auto;
 }
 
 .filters button:hover {
     opacity: .9;
 }
-
+.locations{
+    border-right: solid 1px #DDD;
+}
 .locations, .amenities {
     height: 100%;
     width: 25%;
+    display: flex;
+}
+
+.locations h3, .amenities h3 {
+    font-weight: 600;
+}
+.locations h4, .amenities h4 {
+    font-weight: 400;
+    font-size: 14px;
 }
