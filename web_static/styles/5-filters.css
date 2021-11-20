@@ -29,13 +29,17 @@
 .locations, .amenities {
     height: 100%;
     width: 25%;
-    display: flex;
+    padding-left: 5%;
+    padding-top: 2%;
+    box-sizing: border-box;
 }
 
 .locations h3, .amenities h3 {
     font-weight: 600;
+    margin: 0;
 }
 .locations h4, .amenities h4 {
     font-weight: 400;
     font-size: 14px;
+    margin: 0;
 }
